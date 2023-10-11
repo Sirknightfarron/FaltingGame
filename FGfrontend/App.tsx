@@ -79,6 +79,7 @@ function App(): JSX.Element {
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
+            But why does this work with all those errors?!
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
