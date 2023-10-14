@@ -29,77 +29,14 @@ import {
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
+import { NavigationContainer } from '@react-navigation/native';
 
-function Section({children, title}: SectionProps): JSX.Element {
-  let isDarkMode = useColorScheme() === 'dark';
-  
+function App() {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black, // bool ? this if true :  that if false
-          },
-        ]}>
-        {title} section 
-      </Text>
-
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        SECTION DECRIPTION
-      </Text>
-
-    </View>
-  );
-}
-
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  const [name, setName] = useState("")
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-
-          <Section title={name}>
-          </Section>
-          <TextInput  placeholder='input here' onChangeText={setName}></TextInput>
-
-          <Section title="zweite">
-          </Section>
-
-          <Section title="dritte">
-          </Section>
-
-          <Section title="vierte">
-          </Section>
-
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>{
+      /* Rest of your app code */
+      
+      }</NavigationContainer>
   );
 }
 
