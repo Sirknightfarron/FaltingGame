@@ -1,10 +1,10 @@
 import { View } from "react-native";
 import BackButton from "./BackButton";
 
-function NavigationBar ({navigation}) {
+function NavigationBar ({navigation, screenName}){
 return (
     <View style={styles.container}>
-        <BackButton onPress={navigation.goBack}></BackButton>
+        <BackButton onPress={navigation.goBack} screenName={screenName}></BackButton>
     </View>
 );
 }

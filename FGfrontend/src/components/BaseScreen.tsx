@@ -1,11 +1,11 @@
 import { StyleSheet, View } from "react-native";
 import NavigationBar from "./NavigationBar";
 
-function BaseScreen ({children, navigation}) {
+function BaseScreen ({children, navigation, screenName, route}) {
 return (
     <View>
         <View>{children}</View>
-        <NavigationBar navigation={navigation}></NavigationBar>
+        <NavigationBar navigation={navigation} screenName={screenName}></NavigationBar>
     </View>
 );
 }
