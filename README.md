@@ -25,6 +25,10 @@ If problems concerning YogaKit occur try to delete the FGFaltinggame/ios/Podfile
   ```zsh
   rm -rf Podfiles.lock
   ```
+and reinstall the pods with
+  ```zsh
+  pod install
+  ```
 
 # Start Frontend
 In ...Faltinggame/FGfaltinggame/ :
