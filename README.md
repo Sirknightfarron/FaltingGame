@@ -5,9 +5,13 @@ Eine App bei der man sich eine Reihe von Nachrichten senden kann, die am Ende wi
 If something doesn't work run:
   ```zsh
   npm install
+  ```
   or
-  yarn install 
+  ```zsh
+  yarn install
+  ```
   or
+  ```zsh
   bun install
   ```
 to install necessary dependencies for the app.
@@ -17,13 +21,20 @@ For MacOS, cocoapods may need to be installed via
   ```zsh
   sudo gem install cocoapods
   ```
+If problems concerning YogaKit occur try to delete the FGFaltinggame/ios/Podfiles.lock with
+  ```zsh
+  rm -rf Podfiles.lock
+  ```
 
 # Start Frontend
 In ...Faltinggame/FGfaltinggame/ :
 
 ```zsh
 bun run ios
+```
+or
 
+```zsh
 bun run android
 ```
 
