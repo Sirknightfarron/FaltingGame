@@ -1,20 +1,41 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import Button from "./Button";
-import { useNavigation } from '@react-navigation/native';
+import { RouteProp, useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-function BackButton ({onPress, screenName}) {
+type RootStackParamList = {
+    Home: { userId: string };
+    Profile: { userId: string };
+  };
+
+type BackButtonProps = {
+    screenName: keyof RootStackParamList;
+    onPress: () => void;
+}
+
+type ScreenNavigationProp<T extends keyof RootStackParamList> = NativeStackNavigationProp<RootStackParamList, T>;
+type ScreenRouteProp<T extends keyof RootStackParamList> = RouteProp<RootStackParamList, T>
+
+function BackButton ({ screenName }: BackButtonProps) {
     const navigation = useNavigation();
+    const handleBackButtonPress = () => {
+        navigation.goBack
+    }
+
 return (
-    <Button onPress={() => navigation.navigate(screenName)} >
-        <View style={styles.button}>
+    <Button style={styles.button} onPress={handleBackButtonPress} >
+        <View>
             <Text>Back</Text>
         </View>
     </Button>
 );
 }
-const styles = {
+const styles = StyleSheet.create({
     button: {
-        
+        borderWidth: 1,
+        borderRadius: 12,
+        padding: 8,
     }
-}
+})
+
 export default BackButton;
