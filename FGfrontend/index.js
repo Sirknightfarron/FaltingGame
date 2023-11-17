@@ -3,7 +3,7 @@ import App from './App';
 import { name as appName } from './app.json';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-const AppWithSafeArea = () => {
+const AppWithStack = () => {
     return (
         <SafeAreaProvider>
             <App />
@@ -11,4 +11,4 @@ const AppWithSafeArea = () => {
     );
 }
 
-AppRegistry.registerComponent(appName, () => AppWithSafeArea);
+AppRegistry.registerComponent(appName, () => AppWithStack);

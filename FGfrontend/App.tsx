@@ -11,20 +11,20 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import OverviewScreen from './src/screens/OverviewScreen';
+import CreateScreen from './src/screens/CreateScreen';
+import JoinScreen from './src/screens/JoinScreen';
 
-const Stack = createNativeStackNavigator();
+import { RootStackParamList } from './src/types';
 
-const styles = {
-  container: {
-    flex: 1
-  }
-}
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App() {
   return (
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName='Overview'>
           <Stack.Screen name="Overview" component={OverviewScreen} />
+          <Stack.Screen name="Create" component={CreateScreen} />
+          <Stack.Screen name="Join" component={JoinScreen} />
         </Stack.Navigator>
       </NavigationContainer>
   );
