@@ -11,7 +11,7 @@ type CreateScreenProps = {
     route: CreateScreenRouteProp;
 }
 
-const CreateScreen = ({ navigation }: CreateScreenProps) => {
+const CreateScreen = ({ navigation, route }: CreateScreenProps) => {
     const [creation, setCreation] = useState('Creation');
 
     const handleCreateButtonPress = () => {
@@ -19,7 +19,7 @@ const CreateScreen = ({ navigation }: CreateScreenProps) => {
     }
 
     return (
-        <BaseScreen>
+        <BaseScreen route={route}>
             <Content>
                 <Text>{creation}</Text>
                 <Button onPress={handleCreateButtonPress} buttonText={"Create"} />

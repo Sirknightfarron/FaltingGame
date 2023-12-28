@@ -3,15 +3,16 @@ import NavigationBar from "./NavigationBar";
 import { ReactNode } from "react";
 
 type BaseScreenProps ={
-    children: ReactNode;
+    children: ReactNode,
+    route: any;
 }
 
-const BaseScreen = ({ children }: BaseScreenProps) => {
+const BaseScreen = ({ children, route }: BaseScreenProps) => {
     return (
     <View style={styles.baseContainer}>
         <View>{children}</View>
         <View style={styles.navBar}>
-            <NavigationBar />
+            <NavigationBar route={route}/>
         </View>
     </View>
 );

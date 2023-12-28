@@ -9,14 +9,14 @@ type JoinScreenProps = {
     route: JoinScreenRouteProp;
 }
 
-const JoinScreen = ({}: JoinScreenProps) => {
+const JoinScreen = ({route}: JoinScreenProps) => {
     const [joinText, setJoinText] = useState('JoinText')
     const handleJoinButtonPress = () => {
         setJoinText('Joined...')
     }
 
     return (
-        <BaseScreen>
+        <BaseScreen route={route}>
             <Text>{joinText}</Text>
             <Button onPress={handleJoinButtonPress} buttonText={"Join"}  />
         </BaseScreen>

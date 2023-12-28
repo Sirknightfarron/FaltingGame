@@ -16,7 +16,7 @@ const Content = ({children, style}: ContentProps) => {
 
 const styles = {
     content: {
-        
+        innerHeight: "100%"    
     }
 }
 

@@ -15,7 +15,7 @@ const DUMMY_GAMES = [
     'Gamename 3, 1 player, not your turn'
 ]
 
-const OverviewScreen =  ({ navigation }: OverviewScreenProps) => {
+const OverviewScreen =  ({ navigation, route }: OverviewScreenProps) => {
 
     const listItems = DUMMY_GAMES.map(game => <li>game</li>)
 
@@ -27,7 +27,7 @@ const OverviewScreen =  ({ navigation }: OverviewScreenProps) => {
     }
     
     return (
-    <BaseScreen>
+    <BaseScreen route={route}>
         <Content>
             <Text style={styles.heading}>FaltingGame</Text>
             <View style={styles.buttonContainer}>

@@ -1,16 +1,20 @@
 import { StyleSheet, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import {  useNavigation } from "@react-navigation/native";
 import Button from "./Button";
 
 
-function NavigationBar ( ) {
+function NavigationBar ( { route } ) {
     const navigation = useNavigation();
     const handleBackButtonPress = () => {
         navigation.goBack();
     }
     return (
         <View style={styles.navBar}>
-            <Button onPress={handleBackButtonPress} buttonText="Back"></Button>
+            {
+                route.name === "Overview" ?
+                <View></View> : 
+                <Button onPress={handleBackButtonPress} buttonText="Back"></Button>
+            }
             <View></View>
         </View>
     );
