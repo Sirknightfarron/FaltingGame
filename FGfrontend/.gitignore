@@ -33,7 +33,3 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
-
-# react-native-cli (if used)
-/ios
-/android
