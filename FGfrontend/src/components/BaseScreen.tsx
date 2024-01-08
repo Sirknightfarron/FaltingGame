@@ -1,33 +1,40 @@
-import { StyleSheet, View } from "react-native";
+import { Dimensions, StyleSheet, View } from "react-native";
 import NavigationBar from "./NavigationBar";
 import { ReactNode } from "react";
 
-type BaseScreenProps ={
+type BaseScreenProps = {
     children: ReactNode,
-    route: any;
+    route: any,
+    style?: any
 }
 
-const BaseScreen = ({ children, route }: BaseScreenProps) => {
+const { width, height } = Dimensions.get('window');
+const fixedHeight = height
+const fixedWidth = width
+
+const BaseScreen = ({ children, route, style }: BaseScreenProps) => {
     return (
-    <View style={styles.baseContainer}>
-        <View>{children}</View>
-        <View style={styles.navBar}>
-            <NavigationBar route={route}/>
+        <View style={
+            style === undefined ?
+                style :
+                [styles.baseContainer, { width: fixedWidth, height: fixedHeight }]
+        }>
+            <View>{ children }</View>
+            <View style={ styles.navBar }>
+                <NavigationBar route={ route } />
+            </View>
         </View>
-    </View>
-);
+    );
 }
 
 const styles = StyleSheet.create({
     baseContainer: {
-        padding: 8,
         borderWidth: 1,
-        justifyContent: 'flex-end',
-        alignContent: 'flex-end',
+        justifyContent: 'space-evenly',
+        alignContent: 'center',
     },
     navBar: {
         justifyContent: 'flex-end',
-        
     }
 })
 
