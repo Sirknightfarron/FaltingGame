@@ -17,7 +17,7 @@ const DUMMY_GAMES = [
 
 const OverviewScreen =  ({ navigation, route }: OverviewScreenProps) => {
 
-    const listItems = DUMMY_GAMES.map(game => <li>game</li>)
+    const listItems = DUMMY_GAMES.map(game => <li>{game}</li>)
 
     const handleCreateButtonPress = () => {
         navigation.navigate('Create');
@@ -27,31 +27,33 @@ const OverviewScreen =  ({ navigation, route }: OverviewScreenProps) => {
     }
     
     return (
-    <BaseScreen route={route}>
-        <Content>
-            <Text style={styles.heading}>FaltingGame</Text>
-            <View style={styles.buttonContainer}>
-                <Button style={styles.button} onPress={handleCreateButtonPress} buttonText="Create" />
-                <Button style={styles.button} onPress={handleJoinButtonPress} buttonText="Join"/>
-            </View>
-        </Content>
-    </BaseScreen>
-);
+        <BaseScreen route={ route }>
+            <Content>
+                <Text style={styles.heading}>FaltingGame</Text>
+                <View style={styles.buttonContainer}>
+                    <Button onPress={handleCreateButtonPress} buttonText="Create" />
+                    <Button onPress={handleJoinButtonPress} buttonText="Join"/>
+                </View>
+            </Content>
+        </BaseScreen>
+    );
 }
 
 const styles = StyleSheet.create({
     heading: {
-        fontSize: 24,
+        fontSize: 42,
+        fontWeight: 'bold',
+        fontFamily: 'Snell Roundhand',
+        alignContent: 'flex-start'
     },
     buttonContainer: {
         flexDirection: "row",
-        justifyContent: "space-between",
-        paddingHorizontal: 50
+        justifyContent: 'space-between',
+        padding: 10,
+        alignItems: 'flex-end'
     },
-    button: {
-        borderWidth: 2,
-        borderRadius: 12,
-        padding: 12
+    baseScreen: {
+
     }
 })
 

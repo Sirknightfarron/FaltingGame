@@ -19,9 +19,9 @@ const CreateScreen = ({ navigation, route }: CreateScreenProps) => {
     }
 
     return (
-        <BaseScreen route={route}>
+        <BaseScreen route={ route }>
             <Content>
-                <Text>{creation}</Text>
+                <Text>{ creation }</Text>
                 <Button onPress={handleCreateButtonPress} buttonText={"Create"} />
             </Content>
         </BaseScreen>
@@ -29,9 +29,7 @@ const CreateScreen = ({ navigation, route }: CreateScreenProps) => {
 }
 
 const styles = StyleSheet.create({
-    createButton: {
-        borderWidth: 2
-    }
+
 })
 
 export default CreateScreen;

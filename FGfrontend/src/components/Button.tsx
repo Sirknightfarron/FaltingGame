@@ -7,21 +7,30 @@ type ButtonProps = {
     style?: any;
 }
 
-const Button = ({ onPress, buttonText, style }: ButtonProps ) => {
-return (
-    <View style={style === undefined ? styles.buttonContainer : style}>
-        <Pressable onPress={onPress}>
-            <Text>{buttonText}</Text>
-        </Pressable>
-    </View>
-);
+const Button = ({ onPress, buttonText, style }: ButtonProps) => {
+    return (
+        <View style={ style === undefined ? style : styles.buttonContainer }>
+            <Pressable onPress={ onPress } style={ styles.buttonStyle }>
+                <Text style={ styles.buttonTitle }>{ buttonText }</Text>
+            </Pressable>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-    buttonContainer:{
-        borderWidth: 1,
-        borderRadius: 8,
-        padding: 4,
-    }
+    buttonContainer: {
+        borderWidth: 2,
+        borderRadius: 12,
+        padding: 12,
+    },
+    buttonTitle: {
+        fontWeight: 'bold'
+    },
+    buttonStyle: {
+        borderWidth: 2,
+        borderRadius: 12,
+        padding: 12
+    },
 })
+
 export default Button;
