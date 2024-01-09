@@ -9,13 +9,11 @@ function NavigationBar({ route }) {
         navigation.goBack();
     }
     return (
-        <View style={styles.navBar}>
-            {
+        <View style={styles.navBar}>{
                 route.name === "Overview" ?
                     <View></View> :
-                    <Button onPress={ handleBackButtonPress } buttonText="Back"></Button>
+                    <Button onPress={ handleBackButtonPress } buttonText="Back" cstyle={ styles.backButton }></Button>
             }
-            <View></View>
         </View>
     );
 }
@@ -23,14 +21,20 @@ function NavigationBar({ route }) {
 const styles = StyleSheet.create({
     navBar: {
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'flex-start',
         padding: 10,
         backgroundColor: '#e0e0e0',
-        borderBottomColor: '#ccc',
+        height: 50
+    },
+    backButton: {
+        backgroundColor: '#ddc',
+        borderRadius: 12,
+        fontWeight: 'bold',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 100,
         height: '100%',
-        minHeight: 20,
-        maxHeight: 100
     }
 })
 

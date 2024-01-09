@@ -6,7 +6,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 type RootStackParamList = {
     Home: { userId: string };
     Profile: { userId: string };
-  };
+};
 
 type BackButtonProps = {
     screenName: keyof RootStackParamList;
@@ -16,19 +16,17 @@ type BackButtonProps = {
 type ScreenNavigationProp<T extends keyof RootStackParamList> = NativeStackNavigationProp<RootStackParamList, T>;
 type ScreenRouteProp<T extends keyof RootStackParamList> = RouteProp<RootStackParamList, T>
 
-function BackButton ({ screenName }: BackButtonProps) {
+function BackButton({ screenName }: BackButtonProps) {
     const navigation = useNavigation();
     const handleBackButtonPress = () => {
         navigation.goBack
     }
 
-return (
-    <Button style={styles.button} onPress={handleBackButtonPress} >
-        <View>
-            <Text>Back</Text>
-        </View>
-    </Button>
-);
+    return (
+        <Button style={styles.button} onPress={handleBackButtonPress} >
+                <Text>Back</Text>
+        </Button>
+    );
 }
 const styles = StyleSheet.create({
     button: {

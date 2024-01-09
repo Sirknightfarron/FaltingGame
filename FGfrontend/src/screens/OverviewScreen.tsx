@@ -30,9 +30,10 @@ const OverviewScreen =  ({ navigation, route }: OverviewScreenProps) => {
         <BaseScreen route={ route }>
             <Content>
                 <Text style={styles.heading}>FaltingGame</Text>
+                <View style={styles.middleContent}></View>
                 <View style={styles.buttonContainer}>
-                    <Button onPress={handleCreateButtonPress} buttonText="Create" />
-                    <Button onPress={handleJoinButtonPress} buttonText="Join"/>
+                    <Button cstyle={styles.buttons} onPress={handleCreateButtonPress} buttonText="Create" />
+                    <Button cstyle={styles.buttons} onPress={handleJoinButtonPress} buttonText="Join"/>
                 </View>
             </Content>
         </BaseScreen>
@@ -44,7 +45,8 @@ const styles = StyleSheet.create({
         fontSize: 42,
         fontWeight: 'bold',
         fontFamily: 'Snell Roundhand',
-        alignContent: 'flex-start'
+        alignContent: 'center',
+        margin: 12
     },
     buttonContainer: {
         flexDirection: "row",
@@ -52,8 +54,18 @@ const styles = StyleSheet.create({
         padding: 10,
         alignItems: 'flex-end'
     },
-    baseScreen: {
-
+    middleContent: {
+        flex: 1
+    },
+    buttons: {
+        width: 120,
+        height: 66,
+        borderWidth: 2,
+        borderColor: '#000000',
+        borderRadius: 12,
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 12 
     }
 })
 
