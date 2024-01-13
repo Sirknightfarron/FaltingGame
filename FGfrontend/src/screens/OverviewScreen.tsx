@@ -9,16 +9,7 @@ type OverviewScreenProps = {
     route: OverviewScreenRouteProp;
 }
 
-const DUMMY_GAMES = [
-    'GAMENAME 1, 5 Players, your turn',
-    'Gamename 2, 4 players, your turn',
-    'Gamename 3, 1 player, not your turn'
-]
-
 const OverviewScreen =  ({ navigation, route }: OverviewScreenProps) => {
-
-    const listItems = DUMMY_GAMES.map(game => <li>{game}</li>)
-
     const handleCreateButtonPress = () => {
         navigation.navigate('Create');
     }
@@ -46,7 +37,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontFamily: 'Snell Roundhand',
         alignContent: 'center',
-        margin: 12
+        top: 50
     },
     buttonContainer: {
         flexDirection: "row",

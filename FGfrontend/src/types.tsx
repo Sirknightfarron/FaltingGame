@@ -5,12 +5,14 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 export type RootStackParamList = {
   Overview: undefined;
   Create: undefined;
-  Join: undefined;
-  Game: {
-    id: Number,
-    title: String,
-    players?: Number
+  Join: {
+    item: {
+      gameId: string,
+      gameTitle: string,
+      gamePlayersAmount?: number
+    }
   };
+  Game: undefined;
 };
 
 // Define a type for the navigation prop of each screen
