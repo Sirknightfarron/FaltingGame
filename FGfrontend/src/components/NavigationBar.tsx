@@ -11,7 +11,7 @@ function NavigationBar({ route }) {
     return (
         <View style={styles.navBar}>{
                 route.name === "Overview" ?
-                    <View></View> :
+                    <View style={styles.navBar}></View> :
                     <Button onPress={ handleBackButtonPress } buttonText="Back" cstyle={ styles.backButton }></Button>
             }
         </View>
@@ -24,18 +24,20 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         padding: 10,
-        backgroundColor: '#e0e0e0',
+        width: '100%',
+        backgroundColor: '#dec',
         height: 50
     },
     backButton: {
         backgroundColor: '#ddc',
-        borderRadius: 12,
+        borderRadius: 6,
         fontWeight: 'bold',
-        alignItems: 'center',
         justifyContent: 'center',
-        width: 100,
+        alignContent:'flex-start',
         height: '100%',
-    }
+        paddingHorizontal: 20
+    },
+    
 })
 
 export default NavigationBar;
