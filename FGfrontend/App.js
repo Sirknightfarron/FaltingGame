@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native'; 
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OverviewScreen from './src/screens/OverviewScreen';
 import JoinScreen from './src/screens/JoinScreen';
@@ -10,7 +10,12 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Overview'>
+      <Stack.Navigator
+        initialRouteName='Overview'
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <Stack.Screen name='Overview' component={OverviewScreen} />
         <Stack.Screen name='Join' component={JoinScreen} />
         <Stack.Screen name='Create' component={CreateScreen} />
