@@ -1,28 +1,48 @@
-import { StyleSheet, Text, Pressable } from "react-native";
+import { StyleSheet, Text, Pressable, View } from "react-native";
 
-type GameListItemProps = {
+export type GameListItemProps = {
     item: {
-        id: Number,
-        title: String,
-        players: Number;
-    },
-    onPress: () => void;
+        gameId: string;
+        gameTitle: string;
+        gamePlayersAmount: number;
+    };
+    onPress: (gameId: string) => void;
 }
 
-
-
-const GameListItem = ({ item, onPress }: GameListItemProps) => {
-    <Pressable style={styles.gamePressable} onPress={onPress}>
-        <Text style={styles.gameTitle}>{item.title}</Text>
-        <Text style={styles.gamePlayersAmount}>Players: {item.players}</Text>
-        <Text style={styles.gameId}>Id: {item.id}</Text>
+const GameListItem = ({ item, onPress }: GameListItemProps) => (
+    <Pressable style={styles.gamePressable} onPress={() => onPress(item.gameId)}>
+        <Text style={styles.gameTitle}>{item.gameTitle}</Text>
+        <View style={styles.gameInfos}>
+            <Text style={styles.gamePlayersAmount}>Players: {item.gamePlayersAmount}</Text>
+            <Text style={styles.gameId}>ID: {item.gameId}</Text>
+        </View>
     </Pressable>
-}
+)
+
 const styles = StyleSheet.create({
-    gamePressable: {},
-    gameTitle: {},
+    gameInfos: {
+        flexDirection: 'column',
+        paddingHorizontal: 10,
+        paddingTop: 5,
+        width: '36%'
+    }, 
+    gamePressable: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: "flex-start",
+        borderWidth: 1,
+        padding: 12,
+        borderRadius: 14,
+        backgroundColor: '#def',
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+    },
+    gameTitle: {
+        fontSize: 20,
+        width: '64%'
+    },
+    gamePlayersAmount: {},
     gameId: {},
-    gamePlayersAmount: {}
 });
 
 export default GameListItem;
