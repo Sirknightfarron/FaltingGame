@@ -6,7 +6,7 @@ type ButtonProps = {
     buttonText: string;
     cstyle?: any;
 }
-
+// cstyle: custom style - might refactor later
 const Button = ({ onPress, buttonText, cstyle }: ButtonProps) => {
     return (
         <View style={cstyle === undefined ? styles.buttonContainer : cstyle}>
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     buttonStyle: {
         borderWidth: 2,
         borderRadius: 12,
-        padding: 12
+        padding: 12,
     },
 })
 
