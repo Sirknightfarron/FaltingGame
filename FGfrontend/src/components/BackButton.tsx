@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import Button from "./Button";
 import { RouteProp, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -23,9 +23,10 @@ function BackButton({ screenName }: BackButtonProps) {
     }
 
     return (
-        <Button style={styles.button} onPress={handleBackButtonPress} >
-                <Text>Back</Text>
-        </Button>
+        <Button 
+        style={styles.button} 
+        onPress={handleBackButtonPress} 
+        buttonText="Back" />
     );
 }
 const styles = StyleSheet.create({

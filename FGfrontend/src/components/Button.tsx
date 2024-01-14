@@ -4,12 +4,12 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 type ButtonProps = {
     onPress: () => void;
     buttonText: string;
-    cstyle?: any;
+    style?: any;
 }
 // cstyle: custom style - might refactor later
-const Button = ({ onPress, buttonText, cstyle }: ButtonProps) => {
+const Button = ({ onPress, buttonText, style }: ButtonProps) => {
     return (
-        <View style={cstyle === undefined ? styles.buttonContainer : cstyle}>
+        <View style={style === undefined ? styles.buttonContainer : style}>
             <Pressable onPress={onPress} hitSlop={50} >
                 <Text style={styles.buttonTitle}>{buttonText}</Text>
             </Pressable>
