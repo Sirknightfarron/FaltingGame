@@ -37,20 +37,25 @@ const dadata = [{
     gameTitle: 'Fuggthewhat',
     gamePlayersAmount: 6
 },
-
 ]
 
 const JoinScreen = ({ route }: JoinScreenProps) => {
     const [game, setGame] = useState(dadata);
+    const [selectedGame, setSelectedGame] = useState();
+
+    const handleSelect = (selection) => {
+        setSelectedGame(selection)
+    }
+
     const handleJoinButtonPress = () => {
-        setGame(dadata)
+        //setGame(dadata.push(selectedGame))
     }
 
     //#TODO implement FlatList for joinable games and a field to put the name or id of a game in
     // implement item and css/visuals
     const renderItem = ({ item }) => (
         <GameListItem item={item}
-            onPress={handleJoinButtonPress}
+            onPress={handleSelect}
         />
     )
 
@@ -63,7 +68,7 @@ const JoinScreen = ({ route }: JoinScreenProps) => {
                     keyExtractor={(item) => item.gameId}
                     renderItem={renderItem} />
                 <Button
-                    cstyle={styles.joinButton}
+                    style={styles.joinButton}
                     onPress={handleJoinButtonPress}
                     buttonText={"Join"} />
             </Content>

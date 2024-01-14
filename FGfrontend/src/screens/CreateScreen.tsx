@@ -15,7 +15,6 @@ const CreateScreen = ({ navigation, route }: CreateScreenProps) => {
     const [gameTitle, setGameTitle] = useState('');
     const [maxPlayers, setMaxPlayers] = useState('');
     const [password, setPassword] = useState('');
-    const [value, onChangeText] = useState('placeholder');
 
     const handleCreateButtonPress = () => {
 
@@ -31,21 +30,30 @@ const CreateScreen = ({ navigation, route }: CreateScreenProps) => {
                         value={gameTitle}
                         style={styles.input}
                         placeholder='Game Title'
+                        placeholderTextColor={'darkgreen'}
+                        maxLength={35}
+                        inputMode="text"
                     />
                     <TextInput 
                         onChangeText={maxPlayers => setMaxPlayers(maxPlayers)}
                         value={maxPlayers}
                         style={styles.input}
                         placeholder='Max Players'
+                        placeholderTextColor={'darkgreen'}
+                        maxLength={2}
+                        inputMode="numeric"
                     />
                     <TextInput 
                         onChangeText={password => setPassword(password)}
                         value={password}
                         style={styles.input}
                         placeholder='Password'
+                        placeholderTextColor={'darkgreen'}
+                        maxLength={25}
+                        secureTextEntry
                     />
                 </View>
-                <Button cstyle={styles.createButton} onPress={handleCreateButtonPress} buttonText={"Create"} />
+                <Button style={styles.createButton} onPress={handleCreateButtonPress} buttonText={"Create"} />
             </Content>
         </BaseScreen>
     );

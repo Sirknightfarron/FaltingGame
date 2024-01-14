@@ -14,7 +14,7 @@ const OverviewScreen =  ({ navigation, route }: OverviewScreenProps) => {
         navigation.navigate('Create');
     }
     const handleJoinButtonPress = () => {
-        navigation.navigate('Join')
+        navigation.navigate('Join');
     }
     
     return (
@@ -23,8 +23,8 @@ const OverviewScreen =  ({ navigation, route }: OverviewScreenProps) => {
                 <Text style={styles.heading}>FaltingGame</Text>
                 <View style={styles.middleContent}></View>
                 <View style={styles.buttonContainer}>
-                    <Button cstyle={styles.buttons} onPress={handleCreateButtonPress} buttonText="Create" />
-                    <Button cstyle={styles.buttons} onPress={handleJoinButtonPress} buttonText="Join"/>
+                    <Button style={styles.buttons} onPress={handleCreateButtonPress} buttonText="Create" />
+                    <Button style={styles.buttons} onPress={handleJoinButtonPress} buttonText="Join"/>
                 </View>
             </Content>
         </BaseScreen>
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: '#000000',
         borderRadius: 12,
+        backgroundColor: '#def',
         alignItems: 'center',
         justifyContent: 'center',
         margin: 12 

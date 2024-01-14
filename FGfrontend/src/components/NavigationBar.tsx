@@ -12,7 +12,10 @@ function NavigationBar({ route }) {
         <View style={styles.navBar}>{
                 route.name === "Overview" ?
                     <View style={styles.navBar}></View> :
-                    <Button onPress={ handleBackButtonPress } buttonText="Back" cstyle={ styles.backButton }></Button>
+                    <Button 
+                    onPress={ handleBackButtonPress } 
+                    buttonText="Back" 
+                    style={ styles.backButton } />
             }
         </View>
     );
@@ -29,7 +32,7 @@ const styles = StyleSheet.create({
         height: 50
     },
     backButton: {
-        backgroundColor: '#ddc',
+        backgroundColor: '#adc',
         borderRadius: 6,
         fontWeight: 'bold',
         justifyContent: 'center',
