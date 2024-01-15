@@ -1,4 +1,4 @@
-import { Text, StyleSheet, FlatList, Pressable, View, StatusBar } from "react-native";
+import { Text, StyleSheet, FlatList, Pressable, View, StatusBar, Dimensions } from "react-native";
 import { useState } from "react";
 import BaseScreen from "../components/BaseScreen";
 import { JoinScreenNavigationProp, JoinScreenRouteProp } from "../types";
@@ -39,38 +39,55 @@ const dadata = [{
 },
 ]
 
-const JoinScreen = ({ route }: JoinScreenProps) => {
+const JoinScreen = ({ route, navigation }: JoinScreenProps) => {
     const [game, setGame] = useState(dadata);
-    const [selectedGame, setSelectedGame] = useState();
+    const [selectedGame, setSelectedGame] = useState<string | null>(null);
 
-    const handleSelect = (selection) => {
-        setSelectedGame(selection)
+    const handleSelect = (gameId: string) => {
+        setSelectedGame(gameId)
     }
 
     const handleJoinButtonPress = () => {
         //setGame(dadata.push(selectedGame))
+        navigation.navigate('Game')
+    }
+
+    const handleSearchButtonPress = (): void => {
+        throw new Error("Function not implemented.");
     }
 
     //#TODO implement FlatList for joinable games and a field to put the name or id of a game in
     // implement item and css/visuals
     const renderItem = ({ item }) => (
-        <GameListItem item={item}
+        <GameListItem
+            item={item}
             onPress={handleSelect}
+            selected={selectedGame === item.gameId}
         />
     )
+
 
     return (
         <BaseScreen route={route}>
             <Content style={styles.content}>
-                <Text style={styles.heading}>'Your Games'</Text>
-                <FlatList
-                    data={game}
-                    keyExtractor={(item) => item.gameId}
-                    renderItem={renderItem} />
-                <Button
-                    style={styles.joinButton}
-                    onPress={handleJoinButtonPress}
-                    buttonText={"Join"} />
+                <Text style={styles.heading}>Your Games</Text>
+                <View style={styles.listContainer}>
+                    <FlatList
+                        data={game}
+                        keyExtractor={(item) => item.gameId}
+                        renderItem={renderItem} />
+                </View>
+                <View style={styles.buttonContainer}>
+                    <Button
+                        style={styles.joinButton}
+                        onPress={handleSearchButtonPress}
+                        buttonText="Search"
+                    />
+                    <Button
+                        style={styles.joinButton}
+                        onPress={handleJoinButtonPress}
+                        buttonText={"Join"} />
+                </View>
             </Content>
         </BaseScreen>
     );
@@ -87,7 +104,8 @@ const styles = StyleSheet.create({
     },
     content: {
         borderWidth: 2,
-        borderColor: 'black'
+        borderColor: 'black',
+        height: '100%'
     },
     gameInfos: {
         flexDirection: 'column',
@@ -96,15 +114,28 @@ const styles = StyleSheet.create({
         width: '36%'
     },
     joinButton: {
-        alignContent: 'center',
-        justifyContent: 'space-around',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '45%',
         padding: 25,
         borderWidth: 2,
         borderRadius: 12,
         backgroundColor: '#def',
-        bottom: 10
+        bottom: 10,
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        gap: 20,
+    },
+    listContainer: {
+        borderWidth: 2,
+        borderRadius: 12,
+        height: '70%',
+        marginBottom: 28,
+        paddingBottom: 5,
+        backgroundColor: '#def'
     }
-
 })
 
 export default JoinScreen;

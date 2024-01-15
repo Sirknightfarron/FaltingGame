@@ -7,10 +7,11 @@ export type GameListItemProps = {
         gamePlayersAmount: number;
     };
     onPress: (gameId: string) => void;
+    selected: boolean;
 }
 
-const GameListItem = ({ item, onPress }: GameListItemProps) => (
-    <Pressable style={styles.gamePressable} onPress={() => onPress(item.gameId)}>
+const GameListItem = ({ item, onPress, selected }: GameListItemProps) => (
+    <Pressable style={[styles.gamePressable, selected && styles.selectedItem]} onPress={() => onPress(item.gameId)}>
         <Text style={styles.gameTitle}>{item.gameTitle}</Text>
         <View style={styles.gameInfos}>
             <Text style={styles.gamePlayersAmount}>Players: {item.gamePlayersAmount}</Text>
@@ -37,6 +38,10 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOpacity: 0.2,
     },
+    selectedItem:{
+        backgroundColor: '#ddf'
+    },
+
     gameTitle: {
         fontSize: 20,
         width: '64%'
