@@ -40,16 +40,16 @@ const styles = StyleSheet.create({
         top: 50
     },
     buttonContainer: {
-        flexDirection: "row",
+        flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 10,
-        alignItems: 'flex-end'
+        alignItems: 'flex-end',
     },
     middleContent: {
         flex: 1
     },
     buttons: {
-        width: 120,
+        width: '50%',
         height: 66,
         borderWidth: 2,
         borderColor: '#000000',
