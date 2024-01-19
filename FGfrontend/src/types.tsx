@@ -12,7 +12,11 @@ export type RootStackParamList = {
       gamePlayersAmount?: number
     }
   };
-  Game: undefined;
+  Game: {
+    gameId: string,
+    gameTitle: string,
+    gamePlayersAmount?: number
+  };
 };
 
 // Define a type for the navigation prop of each screen
