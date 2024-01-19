@@ -1,4 +1,4 @@
-import { Text, StyleSheet, FlatList, Pressable, View, StatusBar, Dimensions } from "react-native";
+import { Text, StyleSheet, FlatList, View, StatusBar, Dimensions } from "react-native";
 import { useState } from "react";
 import BaseScreen from "../components/BaseScreen";
 import { JoinScreenNavigationProp, JoinScreenRouteProp } from "../types";
@@ -10,6 +10,12 @@ type JoinScreenProps = {
     navigation: JoinScreenNavigationProp;
     route: JoinScreenRouteProp;
     data: GameListItemProps[];
+}
+
+type GameProps = {
+    gameId: string;
+    gameTitle: string;
+    gamePlayersAmount: number;
 }
 
 const dadata = [{
@@ -36,36 +42,43 @@ const dadata = [{
     gameId: "8",
     gameTitle: 'Fuggthewhat',
     gamePlayersAmount: 6
-},
-]
+}]
 
 const JoinScreen = ({ route, navigation }: JoinScreenProps) => {
     const [game, setGame] = useState(dadata);
-    const [selectedGame, setSelectedGame] = useState<string | null>(null);
+    const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
+    const [selectedGame, setSelectedGame] = useState<GameProps | null>(null);
 
-    const handleSelect = (gameId: string) => {
-        setSelectedGame(gameId)
+    const handleSelect = (gameID: string) => {
+        setSelectedGameId(gameID);
     }
 
     const handleJoinButtonPress = () => {
-        //setGame(dadata.push(selectedGame))
-        navigation.navigate('Game')
+        if (selectedGameId) {
+            const selectedGame = game.find((game) => game.gameId === selectedGameId);
+            navigation.navigate('Game', {
+                gameId: selectedGame.gameId,
+                gameTitle: selectedGame.gameTitle,
+                gamePlayersAmount: selectedGame.gamePlayersAmount,
+            });
+        } else {
+            throw new Error("No Game Selected!");
+        }
     }
 
     const handleSearchButtonPress = (): void => {
         throw new Error("Function not implemented.");
     }
 
-    //#TODO implement FlatList for joinable games and a field to put the name or id of a game in
+    //#TODO implement searchfield to put the name or id of a game in
     // implement item and css/visuals
     const renderItem = ({ item }) => (
         <GameListItem
             item={item}
             onPress={handleSelect}
-            selected={selectedGame === item.gameId}
+            selected={selectedGameId === item.gameId}
         />
     )
-
 
     return (
         <BaseScreen route={route}>
@@ -131,10 +144,11 @@ const styles = StyleSheet.create({
     listContainer: {
         borderWidth: 2,
         borderRadius: 12,
-        height: '70%',
+        height: Dimensions.get('window').height*0.6,
         marginBottom: 28,
-        paddingBottom: 5,
-        backgroundColor: '#def'
+        paddingBottom: 2,
+        backgroundColor: '#def',
+        
     }
 })
 
