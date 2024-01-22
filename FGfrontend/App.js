@@ -7,6 +7,15 @@ import GameScreen from './src/screens/GameScreen';
 
 const Stack = createNativeStackNavigator();
 
+// const MyTransition = {
+//   gestureDirection: 'horizontal',
+//   transitionSpec: {
+//     open: TransitionSpecs.TransitionIOSSpec,
+//     close: TransitionSpecs.TransitionIOSSpec,
+//   },
+//   headerStyleInterpolator: HeaderStyleInterpolators.forFade,
+// }
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -18,7 +27,10 @@ export default function App() {
       >
         <Stack.Screen name='Overview' component={OverviewScreen} />
         <Stack.Screen name='Join' component={JoinScreen} />
-        <Stack.Screen name='Create' component={CreateScreen} />
+        <Stack.Screen
+          name='Create'
+          component={CreateScreen}
+        />
         <Stack.Screen name='Game' component={GameScreen} />
       </Stack.Navigator>
     </NavigationContainer>
