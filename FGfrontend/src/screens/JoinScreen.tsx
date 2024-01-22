@@ -1,53 +1,68 @@
 import { Text, StyleSheet, FlatList, View, StatusBar, Dimensions } from "react-native";
 import { useState } from "react";
 import BaseScreen from "../components/BaseScreen";
-import { JoinScreenNavigationProp, JoinScreenRouteProp } from "../types";
+import { JoinScreenProps } from "../types";
 import Button from "../components/Button";
 import Content from "../components/Content";
 import GameListItem, { GameListItemProps } from "../components/GameListItem";
 
-type JoinScreenProps = {
-    navigation: JoinScreenNavigationProp;
-    route: JoinScreenRouteProp;
-    data: GameListItemProps[];
-}
+// type JoinScreenProps = {
+//     navigation: JoinScreenNavigationProp;
+//     route: JoinScreenRouteProp;
+//     data: GameListItemProps[];
+// }
 
 type GameProps = {
     gameId: string;
     gameTitle: string;
     gamePlayersAmount: number;
+    gameMaxRounds: number;
+    messages?: String[];
 }
 
 const dadata = [{
     gameId: "2",
     gameTitle: 'Wathefugg',
-    gamePlayersAmount: 6
+    gamePlayersAmount: 6,
+    gameMaxRounds: 6,
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
 }, {
     gameId: "3",
     gameTitle: 'Wathefucg',
-    gamePlayersAmount: 6
+    gamePlayersAmount: 6,
+    gameMaxRounds: 6,
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
 }, {
     gameId: "4",
     gameTitle: 'Wathefugk',
-    gamePlayersAmount: 6
+    gamePlayersAmount: 6,
+    gameMaxRounds: 6,
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
 }, {
     gameId: "6",
     gameTitle: 'Fuggthewhat',
-    gamePlayersAmount: 6
+    gamePlayersAmount: 6,
+    gameMaxRounds: 6,
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
 }, {
     gameId: "7",
     gameTitle: 'Wathefugk',
-    gamePlayersAmount: 6
+    gamePlayersAmount: 6,
+    gameMaxRounds: 6,
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
 }, {
     gameId: "8",
     gameTitle: 'Fuggthewhat',
-    gamePlayersAmount: 6
+    gamePlayersAmount: 6,
+    gameMaxRounds: 6,
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
 }]
 
 const JoinScreen = ({ route, navigation }: JoinScreenProps) => {
     const [game, setGame] = useState(dadata);
-    const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
+
     const [selectedGame, setSelectedGame] = useState<GameProps | null>(null);
+    const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
 
     const handleSelect = (gameID: string) => {
         setSelectedGameId(gameID);
@@ -60,6 +75,8 @@ const JoinScreen = ({ route, navigation }: JoinScreenProps) => {
                 gameId: selectedGame.gameId,
                 gameTitle: selectedGame.gameTitle,
                 gamePlayersAmount: selectedGame.gamePlayersAmount,
+                gameMaxRounds: selectedGame.gameMaxRounds,
+                messages: []
             });
         } else {
             throw new Error("No Game Selected!");
