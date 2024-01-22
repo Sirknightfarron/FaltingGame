@@ -15,7 +15,9 @@ const CreateScreen = ({ navigation, route }: CreateScreenProps) => {
     const [gameTitle, setGameTitle] = useState('');
     const [maxPlayers, setMaxPlayers] = useState('');
     const [password, setPassword] = useState('');
+    const [maxRounds, setMaxRounds] = useState('');
 
+    
     const handleCreateButtonPress = () => {
 
     }
