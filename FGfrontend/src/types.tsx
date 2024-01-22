@@ -5,28 +5,45 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 export type RootStackParamList = {
   Overview: undefined;
   Create: undefined;
-  Join: {
-    item: {
-      gameId: string,
-      gameTitle: string,
-      gamePlayersAmount?: number
-    }
-  };
+  Join: undefined;
   Game: {
     gameId: string,
     gameTitle: string,
-    gamePlayersAmount?: number
+    gamePlayersAmount?: number,
+    gameMaxRounds: number,
+    messages?: String[]
   };
 };
 
 // Define a type for the navigation prop of each screen
-export type OverviewScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Overview'>;
-export type CreateScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Create'>;
-export type JoinScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Join'>;
-export type GameScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Game'>;
+type OverviewScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Overview'>;
+type CreateScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Create'>;
+type JoinScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Join'>;
+type GameScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Game'>;
 
 // Define a type for the route prop of each screen
-export type OverviewScreenRouteProp = RouteProp<RootStackParamList, 'Overview'>;
-export type CreateScreenRouteProp = RouteProp<RootStackParamList, 'Create'>;
-export type JoinScreenRouteProp = RouteProp<RootStackParamList, 'Join'>;
-export type GameScreenRouteProp = RouteProp<RootStackParamList, 'Game'>;
+type OverviewScreenRouteProp = RouteProp<RootStackParamList, 'Overview'>;
+type CreateScreenRouteProp = RouteProp<RootStackParamList, 'Create'>;
+type JoinScreenRouteProp = RouteProp<RootStackParamList, 'Join'>;
+type GameScreenRouteProp = RouteProp<RootStackParamList, 'Game'>;
+
+export type OverviewScreenProps = {
+  route: OverviewScreenRouteProp;
+  navigation: OverviewScreenNavigationProp;
+}
+
+export type GameScreenProps = {
+  route: GameScreenRouteProp;
+  navigation: GameScreenNavigationProp;
+}
+
+export type CreateScreenProps = {
+  route: CreateScreenRouteProp;
+  navigation: CreateScreenNavigationProp;
+}
+
+export type JoinScreenProps = {
+  route: JoinScreenRouteProp;
+  navigation: JoinScreenNavigationProp;
+}
+
