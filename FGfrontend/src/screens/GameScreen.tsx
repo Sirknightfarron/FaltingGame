@@ -26,7 +26,7 @@ const GameScreen = ({ route, navigation }: GameScreenProps) => {
                 </View>
                 <View style={ styles.textInputContainer }>
                     <TextInput
-                        maxLength={maxMessageLength}
+                        maxLength={ maxMessageLength }
                         multiline
                         style={ styles.textInput }
                         placeholder="Enter your wonderful idea here!"

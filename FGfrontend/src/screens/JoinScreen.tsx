@@ -18,44 +18,51 @@ type GameProps = {
     gamePlayersAmount: number;
     gameMaxRounds: number;
     messages?: String[];
+    password?: string,
 }
 
-const dadata = [{
+export var dadata = [{
     gameId: "2",
     gameTitle: 'Wathefugg',
-    gamePlayersAmount: 6,
-    gameMaxRounds: 6,
-    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
+    gamePlayersAmount: '6',
+    gameMaxRounds: '6',
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"],
+    password: "Pensi"
 }, {
     gameId: "3",
     gameTitle: 'Wathefucg',
-    gamePlayersAmount: 6,
-    gameMaxRounds: 6,
-    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
+    gamePlayersAmount: '6',
+    gameMaxRounds: '6',
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"],
+    password: "Pensi"
 }, {
     gameId: "4",
     gameTitle: 'Wathefugk',
-    gamePlayersAmount: 6,
-    gameMaxRounds: 6,
-    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
+    gamePlayersAmount: '6',
+    gameMaxRounds: '6',
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"],
+    password: "Pensi"
 }, {
     gameId: "6",
     gameTitle: 'Fuggthewhat',
-    gamePlayersAmount: 6,
-    gameMaxRounds: 6,
-    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
+    gamePlayersAmount: '6',
+    gameMaxRounds: '6',
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"],
+    password: "Pensi"
 }, {
     gameId: "7",
     gameTitle: 'Wathefugk',
-    gamePlayersAmount: 6,
-    gameMaxRounds: 6,
-    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
+    gamePlayersAmount: '6',
+    gameMaxRounds: '6',
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"],
+    password: "Pensi"
 }, {
     gameId: "8",
     gameTitle: 'Fuggthewhat',
-    gamePlayersAmount: 6,
-    gameMaxRounds: 6,
-    messages: ["Elo", "Du oarschkoatzl", "platz'alter"]
+    gamePlayersAmount: '6',
+    gameMaxRounds: '6',
+    messages: ["Elo", "Du oarschkoatzl", "platz'alter"],
+    password: "Pensi"
 }]
 
 const JoinScreen = ({ route, navigation }: JoinScreenProps) => {
@@ -76,7 +83,8 @@ const JoinScreen = ({ route, navigation }: JoinScreenProps) => {
                 gameTitle: selectedGame.gameTitle,
                 gamePlayersAmount: selectedGame.gamePlayersAmount,
                 gameMaxRounds: selectedGame.gameMaxRounds,
-                messages: []
+                messages: selectedGame.messages,
+                password: selectedGame.password
             });
         } else {
             throw new Error("No Game Selected!");
