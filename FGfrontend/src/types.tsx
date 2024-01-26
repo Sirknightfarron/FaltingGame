@@ -5,13 +5,21 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 export type RootStackParamList = {
   Overview: undefined;
   Create: undefined;
-  Join: undefined;
+  Join: {
+    gameId: string,
+    gameTitle: string,
+    gamePlayersAmount: string,
+    gameMaxRounds: string,
+    messages: String[],
+    password: string
+  };
   Game: {
     gameId: string,
     gameTitle: string,
-    gamePlayersAmount?: number,
-    gameMaxRounds: number,
-    messages?: String[]
+    gamePlayersAmount: string,
+    gameMaxRounds: string,
+    messages: String[],
+    password: string
   };
 };
 
